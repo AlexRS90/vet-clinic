@@ -10,29 +10,3 @@ VALUES
 (8, 'Angemon', '2005-06-12', 1, true, -45),
 (9, 'Boarmon', '2005-06-07', 7, true, 20.4),
 (10, 'Blossom','1998-10-13', 3, true, 17);
-BEGIN;
-UPDATE animals
-SET species = 'unspecified';
-ROLLBACK;
-BEGIN;
-UPDATE animals
-SET species = 'digimon'
-WHERE animal_name LIKE '%mon';
-UPDATE animals
-SET species = 'pokemon'
-WHERE species is NULL;
-COMMIT;
-BEGIN;
-DELETE FROM animals;
-ROLLBACK;
-BEGIN;
-DELETE FROM animals
-WHERE date_of_birth > '01-01-2022';
-SAVEPOINT ROWS9;
-UPDATE animals
-SET weight_kg = weight_kg * -1;
-ROLLBACK TO ROWS9;
-UPDATE animals
-SET weight_kg = weight_kg * -1
-WHERE weight_kg < 0;
-COMMIT;
