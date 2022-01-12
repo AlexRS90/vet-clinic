@@ -4,10 +4,17 @@
 In this Milestone, I created a new data base with a single animal table, added values and created some queries.
 
 ### Milestone 2:
-✅ Added a new column to animals table called species 🧬
-✅ Inserted new animals into the database. 🦁 🐢 🌱
-✅ Added transactions 💸 🪙
-✅ Wrote new queries to answer the questions ❓
+✅ Added a new column to animals table called species 🧬 <br>
+✅ Inserted new animals into the database. 🦁 🐢 🌱 <br>
+✅ Added transactions 💸 🪙 <br>
+✅ Wrote new queries to answer the questions ❓ <br>
+
+### Milestone 3:
+✅ Refactored animals table <br>
+✅ Created two new tables <br>
+✅ Inserted values to those new tables <br>
+✅ Filled FK at animals table <br>
+✅ Wrote queries <br>
 
 ## Getting Started
  - Use [schema.sql](https://github.com/AlexRS90/vet-clinic/blob/animal-table/schema.sql) to create all tables.
