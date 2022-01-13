@@ -16,6 +16,12 @@ In this Milestone, I created a new data base with a single animal table, added v
 ✅ Filled FK at animals table <br>
 ✅ Wrote queries <br>
 
+### Milestone 4:
+✅ Created vets table 👨‍⚕️ 👩‍⚕️ <br>
+✅ Created a relationships many to many through specializations and visits tables 🤲 <br>
+✅ Inserted data to the new tables 📄 <br>
+✅ Wrote queries to answer questions ⌨️ ❓ <br>
+
 ## Getting Started
  - Use [schema.sql](https://github.com/AlexRS90/vet-clinic/blob/animal-table/schema.sql) to create all tables.
  - Use [data.sql](https://github.com/AlexRS90/vet-clinic/blob/animal-table/data.sql) to populate tables with sample data.
