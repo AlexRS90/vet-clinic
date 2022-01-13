@@ -76,3 +76,41 @@ SET owner_id = owners.id
 FROM owners
 WHERE animal_name = 'Boarmon' AND owners.full_name = 'Dean Winchester';
 COMMIT;
+
+INSERT INTO vets (vet_name, age, date_of_graduation)
+VALUES
+('William Tatcher', 45, '2000-04-23'),
+('Maisy Smith', 26, '2019-01-17'),
+('Stephanie Mendez', 64, '1981-05-04'),
+('Jack Harkness', 38, '2008-06-08');
+
+INSERT INTO specializations (species_id, vets_id)
+VALUES
+((SELECT id FROM species WHERE name = 'Pokemon'), (SELECT id FROM vets WHERE vet_name = 'William Tatcher')),
+((SELECT id FROM species WHERE name = 'Pokemon'), (SELECT id FROM vets WHERE vet_name = 'Stephanie Mendez')),
+((SELECT id FROM species WHERE name = 'Digimon'), (SELECT id FROM vets WHERE vet_name = 'Stephanie Mendez')),
+((SELECT id FROM species WHERE name = 'Digimon'), (SELECT id FROM vets WHERE vet_name = 'Jack Harkness')),
+(NULL, (SELECT id FROM vets WHERE vet_name = 'Maisy Smith'));
+
+INSERT INTO visits (animal_id, vets_id, visit_date)
+VALUES
+((SELECT id FROM animals WHERE animal_name = 'Agumon'), (SELECT id FROM vets WHERE vet_name = 'William Tatcher'), '2020-05-24'),
+((SELECT id FROM animals WHERE animal_name = 'Agumon'), (SELECT id FROM vets WHERE vet_name = 'Stephanie Mendez'), '2020-07-22'),
+((SELECT id FROM animals WHERE animal_name = 'Gabumon'), (SELECT id FROM vets WHERE vet_name = 'Jack Harkness'), '2022-02-02'),
+((SELECT id FROM animals WHERE animal_name = 'Pikachu'), (SELECT id FROM vets WHERE vet_name = 'Maisy Smith'), '2020-01-05'),
+((SELECT id FROM animals WHERE animal_name = 'Pikachu'), (SELECT id FROM vets WHERE vet_name = 'Maisy Smith'), '2020-03-08'),
+((SELECT id FROM animals WHERE animal_name = 'Pikachu'), (SELECT id FROM vets WHERE vet_name = 'Maisy Smith'), '2020-05-14'),
+((SELECT id FROM animals WHERE animal_name = 'Devimon'), (SELECT id FROM vets WHERE vet_name = 'Stephanie Mendez'), '2021-05-04'),
+((SELECT id FROM animals WHERE animal_name = 'Charmander'), (SELECT id FROM vets WHERE vet_name = 'Jack Harkness'), '2021-02-24'),
+((SELECT id FROM animals WHERE animal_name = 'Plantmon'), (SELECT id FROM vets WHERE vet_name = 'Maisy Smith'), '2019-12-21'),
+((SELECT id FROM animals WHERE animal_name = 'Plantmon'), (SELECT id FROM vets WHERE vet_name = 'William Tatcher'), '2020-08-10'),
+((SELECT id FROM animals WHERE animal_name = 'Plantmon'), (SELECT id FROM vets WHERE vet_name = 'Maisy Smith'), '2021-04-07'),
+((SELECT id FROM animals WHERE animal_name = 'Squirtle'), (SELECT id FROM vets WHERE vet_name = 'Stephanie Mendez'), '2019-09-29'),
+((SELECT id FROM animals WHERE animal_name = 'Angemon'), (SELECT id FROM vets WHERE vet_name = 'Jack Harkness'), '2020-10-03'),
+((SELECT id FROM animals WHERE animal_name = 'Angemon'), (SELECT id FROM vets WHERE vet_name = 'Jack Harkness'), '2020-11-04'),
+((SELECT id FROM animals WHERE animal_name = 'Boarmon'), (SELECT id FROM vets WHERE vet_name = 'Maisy Smith'), '2019-01-24'),
+((SELECT id FROM animals WHERE animal_name = 'Boarmon'), (SELECT id FROM vets WHERE vet_name = 'Maisy Smith'), '2019-05-15'),
+((SELECT id FROM animals WHERE animal_name = 'Boarmon'), (SELECT id FROM vets WHERE vet_name = 'Maisy Smith'), '2020-02-27'),
+((SELECT id FROM animals WHERE animal_name = 'Boarmon'), (SELECT id FROM vets WHERE vet_name = 'Maisy Smith'), '2020-08-03'),
+((SELECT id FROM animals WHERE animal_name = 'Blossom'), (SELECT id FROM vets WHERE vet_name = 'Stephanie Mendez'), '2020-05-24'),
+((SELECT id FROM animals WHERE animal_name = 'Blossom'), (SELECT id FROM vets WHERE vet_name = 'William Tatcher'), '2021-01-11');
