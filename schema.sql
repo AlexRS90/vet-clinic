@@ -44,3 +44,30 @@ ADD species_id INT;
 
 ALTER TABLE animals
 ADD CONSTRAINT fk_species_id FOREIGN KEY (species_id) REFERENCES species (id);
+
+CREATE TABLE vets (
+  id SERIAL,
+  vet_name VARCHAR(100),
+  age INT,
+  date_of_graduation DATE,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE specializations (
+  species_id INT,
+  vets_id INT,
+  CONSTRAINT speciesFK FOREIGN KEY (species_id)
+  REFERENCES species(id),
+  CONSTRAINT vetsFK FOREIGN KEY (vets_id)
+  REFERENCES vets(id)
+);
+
+CREATE TABLE visits (
+  animal_id INT,
+  vets_id INT,
+  visit_date DATE,
+  CONSTRAINT animalFK FOREIGN KEY (animal_id)
+  REFERENCES animals(id),
+  CONSTRAINT vetsFK FOREIGN KEY (vets_id)
+  REFERENCES vets(id)
+);
