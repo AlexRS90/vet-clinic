@@ -77,4 +77,6 @@ ADD COLUMN email VARCHAR(120);
 
 CREATE INDEX visits_asc ON visits (animal_id ASC);
 
+CREATE INDEX vet_id_asc ON visits (vet_id ASC);
+
 CREATE INDEX owners_index_ASC ON owners(email ASC);
